@@ -47,6 +47,7 @@ function App() {
             const userData = userDoc.data();
             login({
               name: userData.full_name,
+              uid: user.uid,
               email: user.email,
               img_url: userData.img_url || "",
               favoriteBooks: userData.favorites || [],
