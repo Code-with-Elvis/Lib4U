@@ -18,7 +18,7 @@ import { useEffect } from "react";
 import { onAuthStateChanged } from "firebase/auth";
 import { getDoc } from "firebase/firestore";
 import { auth, db } from "./firebase";
-import { useAuth } from "./store";
+import { useAuth, useTheme } from "./store";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -36,6 +36,15 @@ const router = createBrowserRouter(
 function App() {
   const login = useAuth((state) => state.login);
   const logout = useAuth((state) => state.logout);
+  const theme = useTheme((state) => state.theme);
+
+  useEffect(() => {
+    if (theme === "dark") {
+      document.documentElement.classList.add("dark");
+    } else {
+      document.documentElement.classList.remove("dark");
+    }
+  }, [theme]);
 
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, async (user) => {
