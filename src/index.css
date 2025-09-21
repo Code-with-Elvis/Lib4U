@@ -1,7 +1,15 @@
+@import url("https://fonts.googleapis.com/css2?family=Saira:ital,wght@0,100..900;1,100..900&family=Titillium+Web:ital,wght@0,200;0,300;0,400;0,600;0,700;0,900;1,200;1,300;1,400;1,600;1,700&family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap");
+
 @import "tailwindcss";
 @import "tw-animate-css";
 
 @custom-variant dark (&:is(.dark *));
+
+@theme {
+  --font-work-sans: "Work Sans", sans-serif;
+  --font-titillium: "Titillium Web", sans-serif;
+  --font-saira: "Saira", sans-serif;
+}
 
 @theme inline {
   --radius-sm: calc(var(--radius) - 4px);
@@ -114,7 +122,24 @@
   * {
     @apply border-border outline-ring/50;
   }
+  html {
+    @apply scroll-pt-12 scroll-smooth;
+  }
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground font-titillium;
+  }
+  /*
+  ========================================
+  # Custom Styles
+  ========================================
+  */
+  button {
+    @apply cursor-pointer;
+  }
+  .auto-height {
+    min-height: calc(100vh - 70px);
+  }
+  .lib-container {
+    @apply px-5 max-[400px]:px-3 max-w-6xl mx-auto;
   }
 }
