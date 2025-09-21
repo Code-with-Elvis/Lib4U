@@ -36,7 +36,7 @@ const SearchForm = () => {
         placeholder="Search by title, author, or keyword"
         value={searchTerm}
         onChange={(e) => setSearchTerm(e.target.value)}
-        className="w-full h-8 px-4 pl-12  text-sm rounded-sm font-medium placeholder:text-muted-foreground focus:outline-none focus:border-yellow-500 border-border border-1"
+        className="w-full h-8 px-4 pl-12  text-sm rounded-sm font-medium placeholder:text-muted-foreground focus:outline-none focus:border-yellow-500 border-border border-1 dark:border-neutral-700 "
       />
     </form>
   );
