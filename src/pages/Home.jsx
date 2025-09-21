@@ -18,7 +18,6 @@ const Home = () => {
           <FollowUs />
           <ChildrenBooks />
           <Categories />
-          Hello
         </div>
       </div>
     </>
