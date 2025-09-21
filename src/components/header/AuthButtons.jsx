@@ -8,7 +8,7 @@ const AuthButtons = () => {
     <div className="flex gap-3">
       <Button
         size="sm"
-        className="font-semibold bg-yellow-500 rounded-full"
+        className="font-semibold bg-yellow-500"
         onClick={() => navigate("?form=login")}
       >
         Login
@@ -16,7 +16,7 @@ const AuthButtons = () => {
       <Button
         variant="outline"
         size="sm"
-        className=" font-semibold hidden sm:inline-flex rounded-full"
+        className=" font-semibold hidden sm:inline-flex"
         onClick={() => navigate("?form=signup")}
       >
         Sign Up

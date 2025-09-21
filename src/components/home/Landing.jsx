@@ -35,7 +35,7 @@ const Landing = () => {
             <Button
               size="lg"
               asChild
-              className="font-semibold bg-yellow-500 h-12 rounded-full"
+              className="font-semibold bg-yellow-500 h-12"
             >
               <Link to="/search">Explore Library</Link>
             </Button>
@@ -43,7 +43,7 @@ const Landing = () => {
               <Button
                 size="lg"
                 variant="outline"
-                className="h-12 bg-transparent font-semibold rounded-full"
+                className="h-12 bg-transparent font-semibold"
               >
                 Sign Up Free
               </Button>
@@ -51,7 +51,7 @@ const Landing = () => {
               <Button
                 size="lg"
                 variant="outline"
-                className="h-12 bg-transparent font-semibold rounded-full"
+                className="h-12 bg-transparent font-semibold"
               >
                 Learn More
               </Button>
