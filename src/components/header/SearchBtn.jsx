@@ -62,10 +62,10 @@ const SearchBtn = () => {
             <RiSearchLine className="absolute text-xl -translate-y-1/2 pointer-events-none top-1/2 left-4 text-neutral-500" />
             <input
               type="text"
-              placeholder="Search by Language | Term"
+              placeholder="Search by title, author, or keyword"
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
-              className="w-full h-8 px-4 pl-12 text-sm rounded-sm font-medium placeholder:text-muted-foreground focus:outline-none focus:border-primary border-neutral-400 border-1"
+              className="w-full h-8 px-4 pl-12 text-sm rounded-sm font-medium placeholder:text-muted-foreground focus:outline-none focus:border-yellow-500 border-neutral-400 border-1"
             />
           </form>
           <nav className="mt-6 common-query">
