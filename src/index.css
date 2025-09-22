@@ -145,6 +145,9 @@
   .lib-landing {
     min-height: calc(100vh - 56px);
   }
+  .blog-info b {
+    @apply font-normal;
+  }
 }
 
 @media (min-height: 800px) {
