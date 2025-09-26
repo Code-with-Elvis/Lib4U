@@ -28,7 +28,9 @@ const BookDetails = () => {
   if (error)
     return (
       <section>
-        <div className="lib-container">Error: {error.message}</div>
+        <div className="lib-container pt-18 pb-10 text-center text-red-500">
+          Error: {error.message}
+        </div>
       </section>
     );
 

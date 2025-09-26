@@ -3,6 +3,7 @@ import axios from "axios";
 import { useLocation } from "react-router-dom";
 
 const useGetSearchedBooks = (queryKey) => {
+  const API_KEY = import.meta.env.VITE_GOOGLE_BOOKS_API_KEY;
   const location = useLocation();
   const searchParams = new URLSearchParams(location.search);
 
@@ -18,7 +19,7 @@ const useGetSearchedBooks = (queryKey) => {
     queryKey: [queryKey, page, q],
     queryFn: async () => {
       const response = await axios.get(
-        `https://www.googleapis.com/books/v1/volumes?q=${q}&startIndex=${startIndex}&maxResults=${maxResults}`
+        `https://www.googleapis.com/books/v1/volumes?q=${q}&startIndex=${startIndex}&maxResults=${maxResults}&key=${API_KEY}`
       );
       return response.data;
     },
