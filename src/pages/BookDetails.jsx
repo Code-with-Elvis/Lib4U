@@ -73,14 +73,16 @@ const BookDetails = () => {
               alt={volumeInfo?.title}
               className="w-full h-auto mt-4"
             />
-            <FavoriteBtn id={id} />
+            <FavoriteBtn book={{ id, ...volumeInfo }} />
           </div>
         </article>
         <article className="blog-info pt-14 max-[740px]:pt-0">
           <h4 className="text-sm text-muted-foreground mb-4">
             <span className="font-semibold">Published Date:</span>{" "}
             <span className="text-yellow-500 font-semibold">
-              {formatDate(volumeInfo?.publishedDate)}
+              {volumeInfo?.publishedDate
+                ? formatDate(volumeInfo?.publishedDate)
+                : "Unknown"}
             </span>
           </h4>
           <h2 className="text-2xl font-semibold mb-4">{volumeInfo?.title}</h2>
