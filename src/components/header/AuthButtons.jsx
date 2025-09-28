@@ -1,15 +1,20 @@
 import { useNavigate } from "react-router-dom";
 import { Button } from "../ui/button";
+import { useAccountModal } from "@/store";
 
 const AuthButtons = () => {
   const navigate = useNavigate();
+  const open = useAccountModal((state) => state.open);
 
   return (
     <div className="flex gap-3">
       <Button
         size="sm"
         className="font-semibold bg-yellow-500"
-        onClick={() => navigate("?form=login")}
+        onClick={() => {
+          open();
+          navigate("?form=login");
+        }}
       >
         Login
       </Button>
@@ -17,7 +22,10 @@ const AuthButtons = () => {
         variant="outline"
         size="sm"
         className=" font-semibold hidden sm:inline-flex"
-        onClick={() => navigate("?form=signup")}
+        onClick={() => {
+          open();
+          navigate("?form=signup");
+        }}
       >
         Sign Up
       </Button>

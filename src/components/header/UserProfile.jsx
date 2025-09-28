@@ -3,16 +3,15 @@ import {
   PopoverContent,
   PopoverTrigger,
 } from "@/components/ui/popover";
-import { Button } from "@/components/ui/button";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { getInitials } from "@/lib/format";
 import { MdOutlineArrowDropDown } from "react-icons/md";
 import { profileLinks } from "@/lib/data";
 import { Link } from "react-router-dom";
 import { Separator } from "../ui/separator";
-import { BiLogOutCircle } from "react-icons/bi";
 import { useState } from "react";
 import { useAuth } from "@/store";
+import LogoutBtn from "./LogoutBtn";
 
 const UserProfile = () => {
   const { user } = useAuth((state) => state);
@@ -48,15 +47,7 @@ const UserProfile = () => {
           ))}
         </nav>
         <Separator className="my-3" />
-        <footer className="px-2">
-          <Button
-            className="w-full rounded-full text-yellow-500"
-            variant="ghost"
-          >
-            <BiLogOutCircle className="size-5" />
-            <span className="font-semibold ">Log Out</span>
-          </Button>
-        </footer>
+        <LogoutBtn />
       </PopoverContent>
     </Popover>
   );

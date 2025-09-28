@@ -1,11 +1,13 @@
-import { useAuth } from "@/store";
+import { useAccountModal, useAuth } from "@/store";
 import HeroImg from "../../assets/Diverse_lib.png";
 import ElavatedImg from "../../assets/Playful_learning.png";
 import { Button } from "../ui/button";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const Landing = () => {
   const user = useAuth((state) => state.user);
+  const open = useAccountModal((state) => state.open);
+  const navigate = useNavigate();
   return (
     <section
       style={{ backgroundImage: `url(${HeroImg})` }}
@@ -43,6 +45,10 @@ const Landing = () => {
               <Button
                 size="lg"
                 variant="outline"
+                onClick={() => {
+                  open();
+                  navigate("?form=signup");
+                }}
                 className="h-12 bg-transparent font-semibold"
               >
                 Sign Up Free

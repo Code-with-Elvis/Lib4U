@@ -16,9 +16,9 @@ import {
 
 import { useEffect } from "react";
 import { onAuthStateChanged } from "firebase/auth";
-import { getDoc } from "firebase/firestore";
+import { doc, getDoc } from "firebase/firestore";
 import { auth, db } from "./firebase";
-import { useAuth, useTheme } from "./store";
+import { useAccountModal, useAuth, useTheme } from "./store";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -37,6 +37,7 @@ function App() {
   const login = useAuth((state) => state.login);
   const logout = useAuth((state) => state.logout);
   const theme = useTheme((state) => state.theme);
+  const isOpen = useAccountModal((state) => state.isOpen);
 
   useEffect(() => {
     if (theme === "dark") {
@@ -45,6 +46,14 @@ function App() {
       document.documentElement.classList.remove("dark");
     }
   }, [theme]);
+
+  useEffect(() => {
+    if (isOpen) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "auto";
+    }
+  }, [isOpen]);
 
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, async (user) => {
@@ -59,7 +68,7 @@ function App() {
               uid: user.uid,
               email: user.email,
               img_url: userData.img_url || "",
-              favoriteBooks: userData.favorites || [],
+              createdAt: userData.createdAt || new Date().toISOString(),
             });
           }
         } catch (error) {
