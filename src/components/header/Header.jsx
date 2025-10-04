@@ -5,6 +5,7 @@ import Theme from "./Theme";
 import AuthButtons from "./AuthButtons";
 import { useAuth } from "@/store";
 import UserProfile from "./UserProfile";
+import Logo from "@/assets/Logo";
 
 const Header = () => {
   const user = useAuth((state) => state.user);
@@ -14,11 +15,12 @@ const Header = () => {
       <div className="lib-container flex items-center justify-between">
         <div className="flex items-center gap-3">
           <SearchBtn />
-          <Link
-            to="/"
-            className="font-saira select-none text-2xl font-extrabold"
-          >
-            LI<span className="text-yellow-500">B</span>4U
+
+          <Link to="/" className="flex items-center gap-1 select-none">
+            <Logo className="size-9.5" />
+            <span className="font-bold hidden sm:inline-block font-saira bg-gradient-to-r from-yellow-700 via-black dark:via-white to-yellow-600 bg-clip-text text-transparent">
+              Lib4U
+            </span>
           </Link>
         </div>
         <SearchForm />

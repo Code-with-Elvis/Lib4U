@@ -74,10 +74,10 @@ const Pagination = ({ pages = 4 }) => {
 
   return (
     <div className="mt-5 flex justify-end max-[600px]:justify-center">
-      <div className="inline-flex  space-x-2 max-[600px]:text-xs">
+      <div className="inline-flex items-center  space-x-2 max-[600px]:text-xs">
         {/* Previous page button */}
         <button
-          className="px-3 py-2 text-gray-800 bg-white border border-gray-400 rounded-lg hover:bg-gray-100 hover:text-gray-700"
+          className="px-3 py-2 text-lg text-gray-800 bg-white border border-gray-400 rounded-lg hover:bg-gray-100 hover:text-gray-700"
           onClick={() => {
             let prevPage = page - 1;
             if (prevPage < 1) prevPage = pageCount;
@@ -92,7 +92,7 @@ const Pagination = ({ pages = 4 }) => {
 
         {/* Next page button */}
         <button
-          className="px-3 py-2 text-gray-800 bg-white border border-gray-400 rounded-lg hover:bg-gray-100 hover:text-gray-700"
+          className="px-3 py-2 text-lg text-gray-800 bg-white border border-gray-400 rounded-lg hover:bg-gray-100 hover:text-gray-700"
           onClick={() => {
             let nextPage = page + 1;
             if (nextPage > pageCount) nextPage = 1;
