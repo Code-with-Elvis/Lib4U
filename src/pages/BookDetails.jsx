@@ -1,3 +1,4 @@
+import Comments from "@/components/book/Comments";
 import FavoriteBtn from "@/components/global/FavoriteBtn";
 import {
   Breadcrumb,
@@ -47,7 +48,7 @@ const BookDetails = () => {
 
   return (
     <section>
-      <div className="lib-container py-10 grid grid-cols-[1.5fr_2fr] max-[740px]:grid-cols-1 gap-6">
+      <div className="lib-container pt-10 grid grid-cols-[1.5fr_2fr] max-[740px]:grid-cols-1 gap-6">
         <article className="">
           <Breadcrumb>
             <BreadcrumbList>
@@ -178,6 +179,7 @@ const BookDetails = () => {
           )}
         </article>
       </div>
+      <Comments bookId={bookId} />
     </section>
   );
 };

@@ -18,8 +18,8 @@ const Logo = ({ className }) => {
         d="M45 50 C55 45, 75 45, 80 55 C85 45, 105 45, 115 50 L115 110 C105 105, 85 105, 80 115 C75 105, 55 105, 45 110 Z"
         fill="#fff"
         stroke="#0F172A"
-        stroke-width="3"
-        stroke-linejoin="round"
+        strokeWidth="3"
+        strokeLinejoin="round"
       />
 
       {/* Book spine shadow */}
@@ -29,7 +29,7 @@ const Logo = ({ className }) => {
         x2="80"
         y2="115"
         stroke="#0F172A"
-        stroke-width="2"
+        strokeWidth="2"
         opacity="0.4"
       />
 
