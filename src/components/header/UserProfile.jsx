@@ -25,7 +25,7 @@ const UserProfile = () => {
             <MdOutlineArrowDropDown size={20} />
           </span>
           <Avatar className="cursor-pointer select-none bg-gray-300">
-            <AvatarImage src={user?.img_url} />
+            <AvatarImage src={user?.img_url} className="object-cover" />
             <AvatarFallback className="bg-neutral-900 text-white font-bold">
               {getInitials(user?.name)}
             </AvatarFallback>

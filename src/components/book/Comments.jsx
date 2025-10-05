@@ -37,7 +37,7 @@ const Comments = ({ bookId }) => {
           {comments.map((c) => (
             <li key={c.id} className="flex gap-3 items-start">
               <Avatar className="size-10 flex-shrink-0">
-                <AvatarImage src={c?.userImg} />
+                <AvatarImage src={c?.userImg} className="object-cover" />
                 <AvatarFallback>
                   {getInitials(c?.userName || "")}
                 </AvatarFallback>
