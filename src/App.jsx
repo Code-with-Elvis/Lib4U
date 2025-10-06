@@ -19,14 +19,17 @@ import { onAuthStateChanged } from "firebase/auth";
 import { doc, getDoc } from "firebase/firestore";
 import { auth, db } from "./firebase";
 import { useAccountModal, useAuth, useTheme } from "./store";
+import { PrivateRoute } from "./middlewares";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
     <Route path="/" element={<RootLayout />}>
       <Route index element={<Home />} />
-      <Route path="favorites" element={<Favorites />} />
-      <Route path="profile" element={<Profile />} />
-      <Route path="settings" element={<Settings />} />
+      <Route element={<PrivateRoute />}>
+        <Route path="favorites" element={<Favorites />} />
+        <Route path="profile" element={<Profile />} />
+        <Route path="settings" element={<Settings />} />
+      </Route>
       <Route path="book/:bookId" element={<BookDetails />} />
       <Route path="search" element={<Search />} />
     </Route>
