@@ -33,7 +33,7 @@ const GoogleAuthButton = () => {
 
     return {
       uid: user.uid,
-      full_name: userData.full_name || user.displayName,
+      name: userData.name || user.displayName,
       email: user.email,
       img_url: userData.img_url || user.photoURL,
       createdAt: userData.createdAt || new Date().toISOString(),
@@ -46,7 +46,7 @@ const GoogleAuthButton = () => {
       toast.success("Login successful.");
       login({
         email: data.email,
-        name: data.full_name,
+        name: data.name || "No Name",
         img_url: data.img_url,
         uid: data.uid,
         createdAt: data.createdAt,

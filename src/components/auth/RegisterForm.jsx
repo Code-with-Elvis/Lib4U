@@ -63,7 +63,7 @@ const RegisterForm = () => {
 
     // Save to Firestore
     await setDoc(doc(db, "profiles", user.uid), {
-      full_name: fullName,
+      name: fullName,
       email: email,
       img_url: "",
       createdAt: new Date().toISOString(),
@@ -71,7 +71,7 @@ const RegisterForm = () => {
 
     return {
       uid: user.uid,
-      fullName,
+      name: fullName,
       email,
       img_url: "",
       createdAt: new Date().toISOString(),

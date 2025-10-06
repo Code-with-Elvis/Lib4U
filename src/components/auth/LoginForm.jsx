@@ -64,7 +64,7 @@ const LoginForm = () => {
       toast.success("Welcome back!");
       login({
         email: data.email,
-        name: data.full_name,
+        name: data.name || "No Name",
         img_url: data.img_url,
         uid: data.uid,
         createdAt: data.createdAt || new Date().toISOString(),
