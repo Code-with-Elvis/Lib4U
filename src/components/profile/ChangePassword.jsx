@@ -94,7 +94,7 @@ const ChangePassword = () => {
     });
   };
   return (
-    <Card className="rounded-lg shadow-none">
+    <Card className="rounded-md shadow-none">
       <CardHeader>
         <CardTitle className="flex items-center">
           <Lock className="mr-2 size-5" />

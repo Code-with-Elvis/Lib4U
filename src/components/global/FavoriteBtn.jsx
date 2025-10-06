@@ -29,7 +29,7 @@ const FavoriteBtn = ({ book }) => {
       if (!user) return null;
       const q = query(
         collection(db, "favorites"),
-        where("userUid", "==", user.uid),
+        where("userId", "==", user.uid),
         where("bookId", "==", book.id)
       );
       const snap = await getDocs(q);
@@ -44,7 +44,7 @@ const FavoriteBtn = ({ book }) => {
     mutationFn: async () => {
       if (!user) throw new Error("Not logged in");
       return await addDoc(collection(db, "favorites"), {
-        userUid: user.uid,
+        userId: user.uid,
         bookId: book.id,
         bookTitle: book.title,
         bookImage: book.imageLinks?.thumbnail,
