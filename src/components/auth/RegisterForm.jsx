@@ -111,7 +111,7 @@ const RegisterForm = () => {
     });
   };
   return (
-    <div>
+    <div className="flex-1">
       <div className="flex items-center justify-center mb-4">
         <Button
           variant="outline"
