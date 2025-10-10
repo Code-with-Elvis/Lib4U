@@ -124,7 +124,7 @@ const RegisterForm = () => {
       </div>
       <form
         onSubmit={handleSubmit(onSubmit)}
-        className="w-[400px] max-[460px]:w-full"
+        className="w-[400px] mx-auto max-[460px]:w-full"
       >
         <Card>
           <CardHeader>
