@@ -1,5 +1,6 @@
 import AccountModal from "@/components/auth/AccountModal";
 import Footer from "@/components/footer/Footer";
+import ScrollTop from "@/components/global/ScrollTop";
 import Header from "@/components/header/Header";
 import { useAccountModal, useAuth } from "@/store";
 import { useEffect } from "react";
@@ -35,6 +36,8 @@ const RootLayout = () => {
 
   return (
     <>
+      {/* Scroll to top on route change */}
+      <ScrollTop />
       <Header />
       <AccountModal />
       <main className="auto-height">
