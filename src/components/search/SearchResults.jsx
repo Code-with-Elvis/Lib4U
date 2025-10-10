@@ -44,7 +44,7 @@ const SearchResults = () => {
       <h2 className=" font-semibold mb-4">
         Results ({totalItems.toLocaleString()})
       </h2>
-      <div className="grid gap-4 grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
+      <div className="columns-2  sm:grid gap-4 grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
         {books.map((book) => (
           <BookCard key={book.id} {...book} />
         ))}

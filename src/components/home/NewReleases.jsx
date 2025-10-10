@@ -28,7 +28,7 @@ const NewReleases = () => {
     <section>
       <HomeTitle title="New Releases" />
 
-      <div className="grid  grid-cols-2 sm:grid-cols-2 md:grid-cols-3 gap-4">
+      <div className="columns-2  sm:grid  grid-cols-2 sm:grid-cols-2 md:grid-cols-3 gap-4">
         {randomBooks.map((book) => (
           <BookCard key={book.id} {...book} />
         ))}

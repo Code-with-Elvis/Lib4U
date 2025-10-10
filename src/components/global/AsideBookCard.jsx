@@ -7,7 +7,7 @@ const AsideBookCard = ({ volumeInfo, id }) => {
       <img
         src={volumeInfo?.imageLinks?.thumbnail}
         alt={volumeInfo?.title}
-        className="w-24 h-20 shrink-0 object-cover"
+        className="w-24 h-20 max-[1024px]:h-32 max-[1024px]:w-28 shrink-0 object-cover"
       />
       <div>
         <h4 className="font-semibold line-clamp-4">{volumeInfo?.title}</h4>
