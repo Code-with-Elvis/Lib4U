@@ -9,7 +9,7 @@ import { Label } from "@/components/ui/label";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import GoogleAuthButton from "./GoogleAuthButton";
 import { useAccountModal, useAuth } from "@/store";
@@ -29,6 +29,15 @@ const loginSchema = z.object({
 const LoginForm = () => {
   const close = useAccountModal((state) => state.close);
   const login = useAuth((state) => state.login);
+  const navigate = useNavigate();
+  const location = useLocation();
+
+  function handleClose() {
+    close();
+    const params = new URLSearchParams(location.search);
+    params.delete("form");
+    navigate({ search: params.toString() });
+  }
 
   const {
     register,
@@ -69,7 +78,7 @@ const LoginForm = () => {
         uid: data.uid,
         createdAt: data.createdAt || new Date().toISOString(),
       });
-      close();
+      handleClose();
     },
     onError: (error) => {
       if (error.code === "auth/user-not-found") {
@@ -101,7 +110,7 @@ const LoginForm = () => {
           variant="outline"
           size="icon"
           className="bg-transparent"
-          onClick={close}
+          onClick={handleClose}
         >
           <LiaTimesSolid />
         </Button>

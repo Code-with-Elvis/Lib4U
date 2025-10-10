@@ -4,11 +4,21 @@ import { useMutation } from "@tanstack/react-query";
 import { signInWithPopup } from "firebase/auth";
 import { doc, getDoc, setDoc } from "firebase/firestore";
 import { FcGoogle } from "react-icons/fc";
+import { useLocation, useNavigate } from "react-router-dom";
 import { toast } from "sonner";
 
 const GoogleAuthButton = () => {
   const close = useAccountModal((state) => state.close);
   const login = useAuth((state) => state.login);
+  const navigate = useNavigate();
+  const location = useLocation();
+
+  function handleClose() {
+    close();
+    const params = new URLSearchParams(location.search);
+    params.delete("form");
+    navigate({ search: params.toString() });
+  }
 
   // ✅ Login with Google
   const loginWithGoogle = async () => {
@@ -51,7 +61,7 @@ const GoogleAuthButton = () => {
         uid: data.uid,
         createdAt: data.createdAt,
       });
-      close();
+      handleClose();
     },
     onError: (error) => {
       if (error.code === "auth/cancelled-popup-request") {

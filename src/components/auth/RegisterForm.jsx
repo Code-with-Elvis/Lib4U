@@ -10,7 +10,7 @@ import { useForm } from "react-hook-form";
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { Button } from "@/components/ui/button";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { useAccountModal, useAuth } from "@/store";
 import GoogleAuthButton from "./GoogleAuthButton";
 import { LiaTimesSolid } from "react-icons/lia";
@@ -44,6 +44,16 @@ const registerSchema = z
 const RegisterForm = () => {
   const close = useAccountModal((state) => state.close);
   const login = useAuth((state) => state.login);
+  const navigate = useNavigate();
+  const location = useLocation();
+
+  function handleClose() {
+    close();
+    const params = new URLSearchParams(location.search);
+    params.delete("form");
+    navigate({ search: params.toString() });
+  }
+
   const {
     register,
     reset,
@@ -84,6 +94,7 @@ const RegisterForm = () => {
     onSuccess: (data) => {
       login(data);
       toast.success("Your account has been created.");
+      handleClose();
     },
     onError: (error) => {
       if (error.code === "auth/email-already-in-use") {
@@ -117,7 +128,7 @@ const RegisterForm = () => {
           variant="outline"
           size="icon"
           className="bg-transparent"
-          onClick={close}
+          onClick={handleClose}
         >
           <LiaTimesSolid />
         </Button>
