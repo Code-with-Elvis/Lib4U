@@ -1,6 +1,6 @@
 const Footer = () => {
   return (
-    <footer className="py-5 border-t border-border text-center text-muted-foreground">
+    <footer className=" text-sm sm:text-base py-5 border-t border-border text-center text-muted-foreground">
       <div className="lib-container">
         <p>
           Built by{" "}

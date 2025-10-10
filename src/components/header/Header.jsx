@@ -11,7 +11,7 @@ const Header = () => {
   const user = useAuth((state) => state.user);
 
   return (
-    <header className="py-3 bg-background shadow-sm  dark:shadow-accent border-border dark:shadow-none dark:border-1 top-0 sticky z-40">
+    <header className="py-3 bg-background shadow-sm  dark:shadow-accent border-b-border dark:shadow-none dark:border-b-1 top-0 sticky z-40">
       <div className="lib-container flex items-center justify-between">
         <div className="flex items-center gap-3">
           <SearchBtn />

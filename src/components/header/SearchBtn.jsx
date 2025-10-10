@@ -77,7 +77,7 @@ const SearchBtn = () => {
                 className="w-full justify-start gap-3 mb-2"
                 asChild
               >
-                <Link to={url}>
+                <Link to={url} onClick={() => setSheetOpen(false)}>
                   <PiArticle className="size-5" />{" "}
                   <span className="text-sm">{label}</span>
                 </Link>
