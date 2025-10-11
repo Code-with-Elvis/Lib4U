@@ -3,7 +3,7 @@ import Footer from "@/components/footer/Footer";
 import ScrollTop from "@/components/global/ScrollTop";
 import Header from "@/components/header/Header";
 import { useAccountModal, useAuth } from "@/store";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { Outlet, useLocation, useNavigate } from "react-router-dom";
 
 const RootLayout = () => {
@@ -11,6 +11,7 @@ const RootLayout = () => {
   const location = useLocation();
   const { open, close } = useAccountModal();
   const navigate = useNavigate();
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     const params = new URLSearchParams(location.search);
@@ -33,6 +34,28 @@ const RootLayout = () => {
       close();
     }
   }, [location.search, user]);
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setIsLoading(false);
+    }, 5000); // === Simulate a loading delay of 5000ms
+
+    return () => clearTimeout(timer);
+  }, []);
+
+  if (isLoading) {
+    return (
+      <div className="fixed inset-0 z-50 flex items-center justify-center bg-white dark:bg-black">
+        <div className="wave-container">
+          <div className="wave"></div>
+          <div className="wave"></div>
+          <div className="wave"></div>
+          <div className="wave"></div>
+          <div className="wave"></div>
+        </div>
+      </div>
+    );
+  }
 
   return (
     <>
