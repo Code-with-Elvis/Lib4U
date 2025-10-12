@@ -5,7 +5,7 @@ import DataManagement from "@/components/settings/DataManagement";
 
 const Settings = () => {
   return (
-    <div className="inf-container py-10">
+    <div className="lib-container py-10">
       <div className="mx-auto max-w-2xl">
         <h1 className="text-2xl font-bold mb-1">Settings</h1>
         <p className="leading-relaxed text-muted-foreground mb-5">
