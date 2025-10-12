@@ -6,6 +6,7 @@ import {
 } from "react-router-dom";
 import {
   BookDetails,
+  Error,
   Favorites,
   Home,
   Profile,
@@ -23,7 +24,7 @@ import { PrivateRoute } from "./middlewares";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
-    <Route path="/" element={<RootLayout />}>
+    <Route path="/" element={<RootLayout />} errorElement={<Error />}>
       <Route index element={<Home />} />
       <Route element={<PrivateRoute />}>
         <Route path="favorites" element={<Favorites />} />
