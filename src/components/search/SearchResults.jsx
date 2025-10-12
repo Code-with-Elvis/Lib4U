@@ -2,11 +2,12 @@ import useGetSearchedBooks from "@/hooks/useGetSearchedBooks";
 import Pagination from "../global/Pagination";
 import { Button } from "../ui/button";
 import BookCard from "../global/BookCard";
+import SearchResultsLoader from "./SearchResultsLoader";
 
 const SearchResults = () => {
   const { data, error, isPending } = useGetSearchedBooks("searched-books");
 
-  if (isPending) return <p>Loading...</p>;
+  if (isPending) return <SearchResultsLoader />;
   if (error)
     return (
       <div className="px-4 text-center mt-20 pb-10">

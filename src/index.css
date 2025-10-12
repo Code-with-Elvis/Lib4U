@@ -216,3 +216,48 @@
     transform: scaleY(2);
   }
 }
+
+/*
+========================================
+# Skeleton Loader Animation
+========================================
+*/
+
+.skeleton {
+  @apply overflow-hidden relative select-none pointer-events-none bg-[#f7f9fa] dark:bg-[#e9e8e814];
+}
+
+.skeleton::after {
+  content: "";
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.5),
+    transparent
+  );
+  animation: skeleton-loading 1.2s infinite;
+}
+
+.dark .skeleton::after {
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.091),
+    transparent
+  );
+}
+
+@keyframes skeleton-loading {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}

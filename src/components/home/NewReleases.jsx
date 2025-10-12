@@ -1,17 +1,12 @@
 import useGetBooks from "@/hooks/useGetBooks";
 import HomeTitle from "./HomeTitle";
 import BookCard from "../global/BookCard";
+import NewReleasesLoader from "./NewReleasesLoader";
 
 const NewReleases = () => {
   const { data, error, isPending } = useGetBooks("books", "books", 0, 40);
 
-  if (isPending)
-    return (
-      <section>
-        <HomeTitle title="New Releases" />
-        <p>Loading...</p>
-      </section>
-    );
+  if (isPending) return <NewReleasesLoader />;
   if (error)
     return (
       <section>

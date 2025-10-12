@@ -1,4 +1,5 @@
 import Comments from "@/components/book/Comments";
+import Loader from "@/components/book/Loader";
 import FavoriteBtn from "@/components/global/FavoriteBtn";
 import {
   Breadcrumb,
@@ -20,12 +21,7 @@ const BookDetails = () => {
 
   const { data, error, isPending } = useGetBook("book", bookId);
 
-  if (isPending)
-    return (
-      <section>
-        <div className="lib-container">Loading...</div>
-      </section>
-    );
+  if (isPending) return <Loader />;
   if (error)
     return (
       <section>
@@ -66,14 +62,16 @@ const BookDetails = () => {
             </BreadcrumbList>
           </Breadcrumb>
           <div className="relative max-[740px]:w-[50%] max-[520px]:w-full mx-auto">
-            <img
-              src={
-                volumeInfo?.imageLinks?.thumbnail ||
-                "https://via.placeholder.com/128x195?text=No+Image"
-              }
-              alt={volumeInfo?.title}
-              className="w-full h-auto mt-4"
-            />
+            <div className="min-h-40 bg-muted mt-4">
+              <img
+                src={
+                  volumeInfo?.imageLinks?.thumbnail ||
+                  "https://via.placeholder.com/128x195?text=No+Image"
+                }
+                alt={volumeInfo?.title}
+                className="w-full h-auto"
+              />
+            </div>
             <FavoriteBtn book={{ id, ...volumeInfo }} />
           </div>
         </article>

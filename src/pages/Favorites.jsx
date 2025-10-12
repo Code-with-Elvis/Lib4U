@@ -6,8 +6,9 @@ import { useQuery } from "@tanstack/react-query";
 import { collection, getDocs, query, where } from "firebase/firestore";
 import { db } from "@/firebase";
 import { useAuth } from "@/store";
-import { Loader2 } from "lucide-react";
 import BookCard from "@/components/favorite/BookCard";
+import BlogCardLoader from "@/components/favorite/BlogCardLoader";
+import { is } from "zod/v4/locales";
 
 const Favorites = () => {
   const [searchTerm, setSearchTerm] = useState("");
@@ -26,7 +27,11 @@ const Favorites = () => {
     return snapshot.docs.map((doc) => ({ id: doc.id, ...doc.data() }));
   };
 
-  const { data: favorites = [], isPending } = useQuery({
+  const {
+    data: favorites = [],
+    isPending,
+    error,
+  } = useQuery({
     queryKey: ["favorites", user?.uid],
     queryFn: fetchFavorites,
     enabled: !!user,
@@ -78,14 +83,35 @@ const Favorites = () => {
           <SortDropdown />
         </div>
 
-        <h2 className="mt-4 font-semibold mb-4">
-          Results: {filteredFavorites.length}
-        </h2>
+        {isPending ? (
+          <div className="h-4 mt-6 mb-2 w-1/3 skeleton"></div>
+        ) : (
+          filteredFavorites.length > 0 && (
+            <h2 className="mt-4 font-semibold mb-4">
+              Results: {filteredFavorites.length}
+            </h2>
+          )
+        )}
 
         {/* Results */}
         {isPending ? (
-          <div className="flex justify-center py-10">
-            <Loader2 className="animate-spin size-6 text-yellow-500" />
+          <div className="grid gap-4 grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
+            {[...Array(8)].map((_, i) => (
+              <BlogCardLoader key={i} />
+            ))}
+          </div>
+        ) : error ? (
+          <div className="text-center py-10">
+            <p className="text-red-500 dark:text-red-400 font-medium">
+              Failed to load favorites.{" "}
+              {error.message || "Please try again later."}
+            </p>
+            <button
+              onClick={() => window.location.reload()}
+              className="mt-3 px-4 py-2 text-sm bg-yellow-500 text-white rounded-md hover:bg-yellow-600"
+            >
+              Retry
+            </button>
           </div>
         ) : filteredFavorites.length === 0 ? (
           <p className="text-neutral-500 dark:text-neutral-300">

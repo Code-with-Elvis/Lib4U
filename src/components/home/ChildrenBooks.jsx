@@ -1,6 +1,7 @@
 import useGetBooks from "@/hooks/useGetBooks";
 import HomeTitle from "./HomeTitle";
 import AsideBookCard from "../global/AsideBookCard";
+import ChildrenBooksLoader from "./ChildrenBooksLoader";
 
 const ChildrenBooks = () => {
   const { data, error, isPending } = useGetBooks(
@@ -10,7 +11,7 @@ const ChildrenBooks = () => {
     20
   );
 
-  if (isPending) return <p>Loading...</p>;
+  if (isPending) return <ChildrenBooksLoader />;
   if (error)
     return (
       <section className="mb-10">
