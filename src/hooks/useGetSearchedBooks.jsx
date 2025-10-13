@@ -7,11 +7,11 @@ const useGetSearchedBooks = (queryKey) => {
   const location = useLocation();
   const searchParams = new URLSearchParams(location.search);
 
-  // Extract params
+  // === Extract params
   const page = parseInt(searchParams.get("page")) || 1;
-  const q = searchParams.get("q") || "books"; // default query if empty
+  const q = searchParams.get("q") || "books"; // === default query if empty
 
-  // Pagination settings
+  // === Pagination settings
   const maxResults = 10;
   const startIndex = (page - 1) * maxResults;
 

@@ -8,7 +8,7 @@ const Pagination = ({ pages = 4 }) => {
   const { search, pathname } = useLocation();
   const navigate = useNavigate();
 
-  // Get the current page from the URL or default to 1
+  // === Get the current page from the URL or default to 1
   const searchParams = new URLSearchParams(search);
   const page = parseInt(searchParams.get("page")) || 1;
 
@@ -33,7 +33,7 @@ const Pagination = ({ pages = 4 }) => {
   const renderPageButtons = () => {
     const pageButtons = [];
 
-    // First page button
+    // === First page button
     pageButtons.push(addPageButton({ pageNumber: 1, activeClass: page === 1 }));
 
     // Ellipsis before current page
@@ -45,12 +45,12 @@ const Pagination = ({ pages = 4 }) => {
       );
     }
 
-    // Current/active page
+    // === Current/active page
     if (page !== 1 && page !== pageCount) {
       pageButtons.push(addPageButton({ pageNumber: page, activeClass: true }));
     }
 
-    // Ellipsis after current page
+    // === Ellipsis after current page
     if (page < pageCount - 1) {
       pageButtons.push(
         <span
@@ -62,7 +62,7 @@ const Pagination = ({ pages = 4 }) => {
       );
     }
 
-    // Last page button
+    // === Last page button
     pageButtons.push(
       addPageButton({ pageNumber: pageCount, activeClass: page === pageCount })
     );
@@ -75,7 +75,7 @@ const Pagination = ({ pages = 4 }) => {
   return (
     <div className="mt-5 flex justify-end max-[600px]:justify-center">
       <div className="inline-flex items-center  space-x-2 max-[600px]:text-xs">
-        {/* Previous page button */}
+        {/* === Previous page button === */}
         <button
           className="px-3 py-2 text-lg text-gray-800 bg-white border border-gray-400 rounded-lg hover:bg-gray-100 hover:text-gray-700"
           onClick={() => {
@@ -87,10 +87,10 @@ const Pagination = ({ pages = 4 }) => {
           <IoChevronBackSharp />
         </button>
 
-        {/* Page buttons */}
+        {/* === Page buttons === */}
         {renderPageButtons()}
 
-        {/* Next page button */}
+        {/* === Next page button === */}
         <button
           className="px-3 py-2 text-lg text-gray-800 bg-white border border-gray-400 rounded-lg hover:bg-gray-100 hover:text-gray-700"
           onClick={() => {

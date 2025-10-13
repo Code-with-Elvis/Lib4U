@@ -9,9 +9,9 @@ const Profile = () => {
         <p className="leading-relaxed text-muted-foreground">
           Manage your profile information and change your password here.
         </p>
-        {/* Profile Information */}
+        {/* === Profile Information === */}
         <ProfileInformation />
-        {/* Password Change */}
+        {/* === Password Change === */}
         <ChangePassword />
       </div>
     </div>

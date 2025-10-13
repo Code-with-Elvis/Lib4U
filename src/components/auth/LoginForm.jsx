@@ -48,7 +48,7 @@ const LoginForm = () => {
     resolver: zodResolver(loginSchema),
   });
 
-  // Login function
+  // === Login function
   const loginUser = async ({ email, password }) => {
     const userCredential = await signInWithEmailAndPassword(
       auth,
@@ -57,7 +57,7 @@ const LoginForm = () => {
     );
     const user = userCredential.user;
 
-    // Get user data from Firestore
+    // === Get user data from Firestore
     const userDoc = await getDoc(doc(db, "profiles", user.uid));
     if (!userDoc.exists()) throw new Error("User profile not found");
 
@@ -69,7 +69,7 @@ const LoginForm = () => {
   const { mutate, isPending } = useMutation({
     mutationFn: loginUser,
     onSuccess: (data) => {
-      // Update Redux store
+      // === Update Redux store
       toast.success("Welcome back!");
       login({
         email: data.email,

@@ -2,7 +2,7 @@ import Footer from "@/components/footer/Footer";
 import Header from "@/components/header/Header";
 import { Button } from "@/components/ui/button";
 import { RefreshCw } from "lucide-react";
-import { Link, useNavigate, useRouteError } from "react-router-dom";
+import { useNavigate, useRouteError } from "react-router-dom";
 
 const Error = () => {
   const error = useRouteError();

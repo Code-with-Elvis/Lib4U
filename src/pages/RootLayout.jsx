@@ -59,7 +59,7 @@ const RootLayout = () => {
 
   return (
     <>
-      {/* Scroll to top on route change */}
+      {/* === Scroll to top on route change === */}
       <ScrollTop />
       <Header />
       <AccountModal />

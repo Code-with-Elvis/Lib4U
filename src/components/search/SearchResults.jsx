@@ -25,9 +25,9 @@ const SearchResults = () => {
 
   const books = data?.items || [];
   const totalItems = data?.totalItems || 0;
-  const pages = Math.ceil(totalItems / 10); // since maxResults=10
+  const pages = Math.ceil(totalItems / 10); // === since maxResults=10
 
-  // handle case where page number is too high
+  // === handle case where page number is too high
   if (books.length === 0) {
     return (
       <div className="text-center mt-10 pb-10">

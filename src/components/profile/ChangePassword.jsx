@@ -27,7 +27,7 @@ const changePasswordSchema = z
   })
   .refine((data) => data.newPassword === data.confirmNewPassword, {
     message: "Passwords must match",
-    path: ["confirmNewPassword"], // 👈 This tells Zod where to show the error
+    path: ["confirmNewPassword"], // === This tells Zod where to show the error
   });
 
 const ChangePassword = () => {
@@ -47,7 +47,7 @@ const ChangePassword = () => {
 
       const user = auth.currentUser;
 
-      // 🔒 Ensure user logged in with email/password
+      // === Ensure user logged in with email/password
       if (user.providerData[0]?.providerId !== "password") {
         throw new Error(
           "You signed in with Google. Password changes are managed via Google."
@@ -59,10 +59,10 @@ const ChangePassword = () => {
         currentPassword
       );
 
-      // 🔁 Reauthenticate before updating password
+      // === Reauthenticate before updating password
       await reauthenticateWithCredential(user, credential);
 
-      // 🔄 Update password
+      // === Update password
       await updatePassword(user, newPassword);
 
       return true;

@@ -63,7 +63,7 @@ function App() {
     const unsubscribe = onAuthStateChanged(auth, async (user) => {
       if (user) {
         try {
-          // Get additional user data from Firestore
+          // === Get additional user data from Firestore
           const userDoc = await getDoc(doc(db, "profiles", user.uid));
           if (userDoc.exists()) {
             const userData = userDoc.data();
@@ -79,12 +79,12 @@ function App() {
           console.error("Error fetching user data:", error.message);
         }
       } else {
-        // No user logged in → clear state
+        // === No user logged in → clear state
         logout();
       }
     });
 
-    return () => unsubscribe(); // Cleanup on unmount
+    return () => unsubscribe(); // === Cleanup on unmount
   }, [login, logout]);
 
   return <RouterProvider router={router} />;

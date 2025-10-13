@@ -8,7 +8,6 @@ import { db } from "@/firebase";
 import { useAuth } from "@/store";
 import BookCard from "@/components/favorite/BookCard";
 import BlogCardLoader from "@/components/favorite/BlogCardLoader";
-import { is } from "zod/v4/locales";
 
 const Favorites = () => {
   const [searchTerm, setSearchTerm] = useState("");
@@ -68,7 +67,7 @@ const Favorites = () => {
       <div className="lib-container py-10">
         <h1 className="text-2xl font-bold mb-2">Favorites</h1>
 
-        {/* Search + Sort */}
+        {/* === Search + Sort === */}
         <div className="flex items-center gap-4">
           <form onSubmit={handleSubmit} className="relative w-full sm:w-sm">
             <RiSearchLine className="absolute text-xl -translate-y-1/2 pointer-events-none top-1/2 left-4 text-neutral-500 dark:text-neutral-300" />
@@ -93,7 +92,7 @@ const Favorites = () => {
           )
         )}
 
-        {/* Results */}
+        {/* === Results === */}
         {isPending ? (
           <div className="grid gap-4 grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
             {[...Array(8)].map((_, i) => (

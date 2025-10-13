@@ -37,7 +37,7 @@ const BookDetails = () => {
 
   const description = volumeInfo?.description || "";
 
-  // Truncate description
+  // === Truncate description
   const truncated =
     description.split(" ").slice(0, 40).join(" ") +
     (description.split(" ").length > 40 ? "..." : "");

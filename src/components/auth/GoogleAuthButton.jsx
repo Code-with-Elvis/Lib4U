@@ -20,17 +20,17 @@ const GoogleAuthButton = () => {
     navigate({ search: params.toString() });
   }
 
-  // ✅ Login with Google
+  // === Login with Google
   const loginWithGoogle = async () => {
     const result = await signInWithPopup(auth, googleProvider);
     const user = result.user;
 
-    // Check if user already exists in Firestore
+    // === Check if user already exists in Firestore
     const userRef = doc(db, "profiles", user.uid);
     const userSnap = await getDoc(userRef);
 
     if (!userSnap.exists()) {
-      // If user doesn't exist, create a new document
+      // === If user doesn't exist, create a new document
       await setDoc(userRef, {
         email: user.email,
         name: user.displayName,

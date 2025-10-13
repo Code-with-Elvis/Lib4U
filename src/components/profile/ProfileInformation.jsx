@@ -60,7 +60,7 @@ const ProfileInformation = () => {
     }
   }, [user, reset]);
 
-  // === MUTATION
+  // MUTATION
   const { mutate: updateProfile, isPending } = useMutation({
     mutationFn: async ({ fullName, image }) => {
       if (!user?.uid) throw new Error("User not logged in");
@@ -72,12 +72,12 @@ const ProfileInformation = () => {
         updatedAt: new Date().toISOString(),
       });
 
-      // Return updated data
+      // === Return updated data
       return { ...user, name: fullName, img_url: image || "" };
     },
 
     onSuccess: (updatedUser) => {
-      login(updatedUser); // update local store
+      login(updatedUser); // === update local store
       toast.success("Profile updated successfully");
       queryClient.invalidateQueries(["user", updatedUser.uid]);
     },

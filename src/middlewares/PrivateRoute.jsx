@@ -17,7 +17,7 @@ const PrivateRoute = () => {
         </div>
         <p className="text-sm animate-pulse">Loading...</p>
       </div>
-    ); // Prevent redirect during loading
+    ); // === Prevent redirect during loading
 
   return user ? <Outlet /> : <Navigate to="/" />;
 };

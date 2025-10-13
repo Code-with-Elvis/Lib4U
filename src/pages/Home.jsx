@@ -11,11 +11,11 @@ const Home = () => {
       <GoTopBtn />
       <Landing />
       <div className="lib-container items-start grid max-[1024px]:grid-cols-1 grid-cols-[3fr_1.5fr] gap-10 gap-y-12 my-10">
-        {/*=== Left Column ===*/}
+        {/* === Left Column === */}
         <div className="">
           <NewReleases />
         </div>
-        {/*=== Right Column ===*/}
+        {/* === Right Column === */}
         <div className="">
           <FollowUs />
           <ChildrenBooks />

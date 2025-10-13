@@ -38,7 +38,7 @@ const UserProfile = () => {
             <Link
               key={id}
               to={path}
-              onClick={() => setCardOpen(false)} // Close popover on link click
+              onClick={() => setCardOpen(false)} // === Close popover on link click
               className="flex group header__profile--link items-center gap-3 px-3 py-2 text-sm rounded-md hover:bg-gray-100 transition-all"
             >
               <Icon className="size-5.5 icon text-neutral-700 dark:text-neutral-100 group-hover:text-yellow-500 dark:group-hover:text-yellow-500 group-active:fill-yellow-500 transition duration-100" />

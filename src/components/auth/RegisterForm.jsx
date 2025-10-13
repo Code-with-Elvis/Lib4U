@@ -71,7 +71,7 @@ const RegisterForm = () => {
     );
     const user = userCredential.user;
 
-    // Save to Firestore
+    // === Save to Firestore
     await setDoc(doc(db, "profiles", user.uid), {
       name: fullName,
       email: email,

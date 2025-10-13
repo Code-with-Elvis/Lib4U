@@ -5,7 +5,7 @@ import { Button } from "../ui/button";
 const GoTopBtn = () => {
   const [isVisible, setIsVisible] = useState(false);
 
-  // === HANDLE SCROLL EVENT TO TOGGLE BUTTON VISIBILITY
+  // === Handle scroll event to toggle button visibility
   useEffect(() => {
     const handleScroll = () => {
       if (window.scrollY > 1000) {
@@ -23,7 +23,7 @@ const GoTopBtn = () => {
     };
   }, []);
 
-  // === SCROLL TO TOP FUNCTION
+  // === Scroll to top function
   const scrollToTop = () => {
     window.scrollTo({
       top: 0,

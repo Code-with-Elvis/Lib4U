@@ -11,16 +11,16 @@ const Settings = () => {
         <p className="leading-relaxed text-muted-foreground mb-5">
           Manage your account settings, preferences, and data here.
         </p>
-        {/* Account Actions */}
+        {/* === Account Actions === */}
         <AccountActions />
 
-        {/* Account Information */}
+        {/* === Account Information === */}
         <AccountInformation />
 
-        {/* Data Management */}
+        {/* === Data Management === */}
         <DataManagement />
 
-        {/* Danger Zone */}
+        {/* === Danger Zone === */}
         <DangerZone />
       </div>
     </div>

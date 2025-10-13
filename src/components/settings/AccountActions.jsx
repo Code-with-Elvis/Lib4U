@@ -15,7 +15,7 @@ const AccountActions = () => {
     setLoading(true);
     try {
       await signOut(auth);
-      logout(); // Clear user state after logout
+      logout(); // === Clear user state after logout
       toast.success("Logged out successfully");
     } catch (error) {
       toast.error(error.message || "Failed to logout");
